@@ -2,7 +2,6 @@ import React from 'react';
 import { Tarea } from '../../clases/tarea';
 import { v4 as uuidv4 } from 'uuid';
 import '../input-tarea/input-tarea.css';
-import { AiOutlinePlus } from "react-icons/ai";
 
 class InputTarea extends React.Component {
 
@@ -32,22 +31,26 @@ class InputTarea extends React.Component {
 
   render() {
     return (
-      <form
-        className='formulario-input'
-        onSubmit={this.enviarFormulario}>
-        <input
-          required
-          className='tarea-input'
-          type='text'
-          placeholder='Escribí una Tarea'
-          value={this.state.input}
-          name='texto'
-          onChange={this.cambioInput}
-        />
-        <button className='tarea-boton'>
-          <AiOutlinePlus className='tarea-icono' />
-        </button>
-      </form>
+      <div className='card card-body my-3'>
+        <form
+          onSubmit={this.enviarFormulario}>
+          <div className='input'>
+            <input
+              required
+              className='form-control'
+              type='text'
+              placeholder='Escribí una Tarea'
+              value={this.state.input}
+              name='texto'
+              onChange={this.cambioInput}
+            />
+          </div>
+
+          <button type="submit" className='btn btn-block mt-3 btn-info'>
+            Agregar tarea
+          </button>
+        </form>
+      </div>
     )
   }
 }
